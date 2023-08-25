@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
+.nav {
+    width: 100vw;
+    height: 6rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    gap: 2rem;
+    padding-left: 1rem;
+    position: sticky;
+    top: 0;
+}
+#logo {
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+}
+#logo img {
+    height: 100%;
+    cursor: pointer;
+}
+ul {
+    display: flex;
+    width: 17vw;
+    justify-content: space-between;
+    align-items: center;
+}
+li {
+    list-style: none;
+    display: flex;
+    width: 11rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8rem;
+
+    box-shadow: 0 0 0.7rem rgb(164, 161, 161);
+}
+.link {
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 600;
+    font-family: "Yusei Magic", sans-serif;
+}
+li:hover {
+    box-shadow: 0 0 0.6rem rgb(191, 189, 189);
+    width: 11.5rem;
+    height: 3.5rem;
+}
