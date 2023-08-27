@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
+
 .nav {
     width: 100vw;
     height: 6rem;
     background-color: rgb(255, 255, 255);
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 8rem;
     padding-left: 1rem;
     position: sticky;
     top: 0;
@@ -19,31 +21,113 @@
     height: 100%;
     cursor: pointer;
 }
-ul {
-    display: flex;
-    width: 17vw;
-    justify-content: space-between;
-    align-items: center;
-}
-li {
+
+.desknavitem {
     list-style: none;
     display: flex;
-    width: 11rem;
-    height: 3rem;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border-radius: 8rem;
+    height: 3rem;
+    width: 20rem;
+}
+.desknavitem p {
+    display: none;
+}
 
-    box-shadow: 0 0 0.7rem rgb(164, 161, 161);
-}
 .link {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: bold;
     color: black;
-    font-weight: 600;
-    font-family: "Yusei Magic", sans-serif;
+    
 }
-li:hover {
-    box-shadow: 0 0 0.6rem rgb(191, 189, 189);
-    width: 11.5rem;
-    height: 3.5rem;
+
+.mobshownav {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    width: 20rem;
+}
+.mobshownav p{
+    display: none;
+}
+
+.link:hover {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: rgb(5, 136, 5);
+}
+
+.menubtn {
+    width: 6.7rem;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .nav {
+        height: 7rem;
+        gap: 0rem;
+        padding-left: 1rem;
+        justify-content: space-between;
+        position: relative;
+        padding-right: 2rem;
+    }
+    .menubtn {
+        display: block;
+    }
+    .menubtn img {
+        width: 5rem;
+    }
+
+    .desknavitem {
+        display: none;
+    }
+    .mobshownav {
+        background: rgb(255, 255, 255);
+        list-style: none;
+        position: absolute;
+        top: 99%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        box-shadow: 0 0.4rem 0.2rem -0.2rem rgba(176, 172, 172, 0.2);
+        z-index: 1;
+        text-align: center;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 2rem;
+    }
+    .mobshownav li {
+        width: 50%;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        border: 0.1rem solid;
+        border-radius: 5rem;
+    }
+    .mobshownav p {
+        display: block;
+        font-size: 1.6rem;
+        color: rgb(76, 74, 74);
+        margin-top: auto;
+    }
+    .mobshownav p span {
+        font-weight: bold;
+    }
+    .link {
+        width: 100%;
+        font-size: 2.2rem;
+    }
+    .link:hover {
+        font-size: 2.5rem;
+        color: rgb(5, 136, 5);
+    }
 }

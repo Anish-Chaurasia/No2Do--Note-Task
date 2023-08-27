@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import todostyl from './todo.module.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { addtask, removetask, markcompleted, resettask } from './Counterslice';
 
 function Todo() {
   const [userinput, setuserinput] = useState({ task: "", status: false })
-  const [todolist, setTodolist] = useState([]);
+  // const [todolist, setTodolist] = useState([]);
   const [countcomp, setCountcomp] = useState(0)
+  const todolist = useSelector(state => state.todo)
+  const dispatch = useDispatch();
+
+  console.log(todolist)
 
   function handleinput(event) {
     const name = event.target.name;
@@ -13,29 +19,27 @@ function Todo() {
 
 
   }
-  function addtask() {
-    setTodolist([...todolist, userinput])
+  useEffect(() => {
     setuserinput({ task: "", status: false })
+  }, [todolist])
 
-  }
-  function resettask() {
-    setTodolist([])
-  }
 
-  function removetask(index) {
-    const updatedtodo = todolist.filter((item, id) => id != index);
-    setTodolist(updatedtodo)
+ 
 
-  }
-  function markcompleted(index) {
-    const updatedlist = todolist.map((item, id) => {
-      if (id == index) {
-        item.status = true
-      }
-      return item
-    })
-    setTodolist(updatedlist)
-  }
+  // function removetask(index) {
+  //   const updatedtodo = todolist.filter((item, id) => id != index);
+  //   setTodolist(updatedtodo)
+
+  // }
+  // function markcompleted(index) {
+  //   const updatedlist = todolist.map((item, id) => {
+  //     if (id == index) {
+  //       item.status = true
+  //     }
+  //     return item
+  //   })
+  //   setTodolist(updatedlist)
+  // }
 
 
   useEffect(() => {
@@ -68,8 +72,8 @@ function Todo() {
         </div>
         <div className={todostyl.inputuser}>
           <div className={todostyl.inputfield}><input type='text' value={userinput.task} name='task' onChange={handleinput} placeholder='Add New Todo....' /></div>
-          <button type='button' onClick={addtask} > <img src="./add.png" alt="" /></button>
-          <button type='button' onClick={resettask}><img src="./reset.png" alt="" /></button>
+          <button className={todostyl.todobtn} type='button' onClick={() => dispatch(addtask(userinput))} > <img src="./add.png" alt="" /></button>
+          <button className={todostyl.todobtn} type='button' onClick={() => dispatch(resettask())}><img src="./reset.png" alt="" /></button>
         </div>
 
 
@@ -88,13 +92,13 @@ function Todo() {
               return (
                 <div className={todostyl.mapdiv}>
                   <div id={todostyl.para}>
-                   
+
                     <p>{item.task}</p>
                   </div>
                   <div id={todostyl.listbutton}>
                     {item.status === false ? <p id={todostyl.pending}>pending</p> : <p id={todostyl.completed}>completed</p>}
-                    <button key={index} onClick={() => markcompleted(index)}><img src='./completed.png' /></button>
-                    <button key={index} onClick={() => removetask(index)}><img src='./remove.png' /></button>
+                    {/* <button className={todostyl.todobtn} key={index} onClick={() => markcompleted(index)}><img src='./completed.png' /></button>
+                    <button className={todostyl.todobtn} key={index} onClick={() => removetask(index)}><img src='./remove.png' /></button> */}
                   </div>
                 </div>
               )
