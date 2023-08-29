@@ -24,13 +24,9 @@ function Todo() {
   }, [todolist])
 
 
- 
 
-  // function removetask(index) {
-  //   const updatedtodo = todolist.filter((item, id) => id != index);
-  //   setTodolist(updatedtodo)
 
-  // }
+
   // function markcompleted(index) {
   //   const updatedlist = todolist.map((item, id) => {
   //     if (id == index) {
@@ -97,8 +93,8 @@ function Todo() {
                   </div>
                   <div id={todostyl.listbutton}>
                     {item.status === false ? <p id={todostyl.pending}>pending</p> : <p id={todostyl.completed}>completed</p>}
-                    {/* <button className={todostyl.todobtn} key={index} onClick={() => markcompleted(index)}><img src='./completed.png' /></button>
-                    <button className={todostyl.todobtn} key={index} onClick={() => removetask(index)}><img src='./remove.png' /></button> */}
+                    <button className={todostyl.todobtn} key={index} onClick={() => dispatch(markcompleted(index))}><img src='./completed.png' /></button>
+                    <button className={todostyl.todobtn} key={index} onClick={() => dispatch(removetask(index))}><img src='./remove.png' /></button>
                   </div>
                 </div>
               )

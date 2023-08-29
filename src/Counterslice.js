@@ -6,7 +6,7 @@ const Counterslice = createSlice(
         initialState,
         reducers: {
             addtask: (state, actions) => {
-             state.push(actions.payload)
+                state.push(actions.payload)
 
             },
             resettask: (state, actions) => {
@@ -14,9 +14,18 @@ const Counterslice = createSlice(
 
             },
             markcompleted: (state, actions) => {
-
+                const updatedlist = state.map((item, id) => {
+                    if (id == actions.payload) {
+                        item.status = true
+                    }
+                    return item
+                }
+                )
+                return void updatedlist
             },
             removetask: (state, actions) => {
+                const updatedtodo = state.filter((item, id) => id != actions.payload);
+                return updatedtodo;
 
             }
         }
