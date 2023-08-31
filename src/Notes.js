@@ -38,8 +38,8 @@ function Notes() {
           <div>
             <div id={notestyl.yournotes}>
               <div>     <h1>Your Notes</h1></div>
-              <div id={notestyl.notenavbtn}> <button>All Notes</button>
-                <button>Favourite Notes</button></div>
+              <div id={notestyl.notenavbtn}> <button>All </button>
+                <button>Favourite </button></div>
             </div>
             <div className={notestyl.allnotediv}>
 
@@ -78,7 +78,7 @@ function Notes() {
             <input type='text' value={userinput.head} name='head' onChange={handleinput} placeholder='Add Title' required />
             <textarea typeof='textarea' value={userinput.txt} name='txt' onChange={handleinput} placeholder='Make Your Notes' />
             <div>
-              <button type='submit' >Add Note</button>
+              <button type='submit' >Add</button>
               <button type='button' onClick={()=>setNewnote(!newnote)}>Close</button>
             </div>
           </form>
